@@ -64,7 +64,7 @@
             <label for="acao">Ação</label>
             <select name="acao" id="acao">
                 <option value="inserir">Inserir</option>
-                <option value="obter">Buscar</option>
+                <!-- <option value="obter">Buscar</option> -->
                 <option value="remover">Remover</option>
             </select>
             <label for="chave">Chave</label>
@@ -113,7 +113,7 @@
 
                         const local = $("#resultado");
 
-                        squarify(local, array, 0, 0, local.width(), local.height(), total);
+                        melhorLocal(local, array, 0, 0, local.width(), local.height(), total);
 
 
                     },
@@ -136,10 +136,6 @@
                 return valor + somaEsquerda + somaDireita;
             }
 
-            function porcentagemNo(total, unidade, cem) {
-                return Math.round((cem * unidade) / total);
-            }
-
             function transformarEmArray(no) {
                 const resultado = [];
 
@@ -159,7 +155,7 @@
                 return resultado;
             }
 
-            function squarify(local, array, x, y, largura, altura, total) {
+            function melhorLocal(local, array, x, y, largura, altura, total) {
                 if (array.length === 0) return;
 
                 let linha = [];
