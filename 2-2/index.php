@@ -162,8 +162,6 @@
                 let qtdArray = [...array];
                 let proporcao = Infinity;
 
-                var arrayMaior = [];
-
                 let retorno = 0;
 
                 while (qtdArray.length > 0) {
