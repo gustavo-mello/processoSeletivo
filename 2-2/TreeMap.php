@@ -35,7 +35,6 @@ class TreeMap
     public function obter($chave)
     {
         $no = $this->obterRecursivo($this->raiz, $chave);
-
         return $no ? $no->valor : null;
     }
 
@@ -45,9 +44,9 @@ class TreeMap
             return null;
         }
 
-        if ($chave < $no->chave) {
+        if (strcmp($chave, $no->chave) < 0) {
             return $this->obterRecursivo($no->noEsquerda, $chave);
-        } else if ($chave > $no->chave) {
+        } else if (strcmp($chave, $no->chave) > 0) {
             return $this->obterRecursivo($no->noDireita, $chave);
         } else {
             return $no;
@@ -61,9 +60,9 @@ class TreeMap
 
     private function removerRecursivo($no, $chave)
     {
-        if ($chave < $no->chave) {
+        if (strcmp($chave, $no->chave) < 0) {
             $no->noEsquerda = $this->removerRecursivo($no->noEsquerda, $chave);
-        } else if ($chave > $no->chave) {
+        } else if (strcmp($chave, $no->chave) > 0) {
             $no->noDireita = $this->removerRecursivo($no->noDireita, $chave);
         } else {
             if ($no->noEsquerda == null) {
@@ -97,8 +96,9 @@ class TreeMap
         return $this->obterRecursivo($this->raiz, $chave) != null;
     }
 
-    private function converteParaArray($no){
-        if($no == null){
+    private function converteParaArray($no)
+    {
+        if ($no == null) {
             return null;
         }
 
@@ -112,7 +112,8 @@ class TreeMap
         return $array;
     }
 
-    public function converteParaJSON(){
+    public function converteParaJSON()
+    {
         $array = $this->converteParaArray($this->raiz);
 
         return json_encode($array);

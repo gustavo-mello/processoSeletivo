@@ -28,10 +28,6 @@ switch ($acao) {
     case "obter":
         if($chave){
             $resultado = $treeMap->obter($chave);
-
-            if($resultado){
-
-            }
         }
     
         break;
